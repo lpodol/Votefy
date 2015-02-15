@@ -21,7 +21,6 @@ end
 #   redirect '/votefy'
 # end
 #
-# delete '/votefy/:id' do
-#   playlist = db.execute("DELETE FROM playlist WHERE id=?", params["id"])
-#   redirect '/votefy'
-#  end
+delete '/' do
+  playlist = db.execute("DELETE FROM playlist WHERE id=params[:id]")
+ end
