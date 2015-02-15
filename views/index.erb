@@ -3,20 +3,23 @@
   <header>
     <h1>Votefy</h1>
   </header>
-  <ul>
-    <form action= "/" method = "post">
+    <form action= "/songs" method = "post">
       <input type="text" name="artist" placeholder="Artist name" required>
       <input type="text" name="track" placeholder="Song name" required>
-      <button>ADD</button><br></br>
+      <button>ADD</button>
+    </form>
 
+    <ul>
     <% playlist.each do |playlist| %>
-      <li><%= playlist[1] %>: <%= playlist[2] %><form action = "/<% params[:id] %>" method = "post"> <!--method override-->
-        <input type="hidden" name="_method" value = "delete"><button>DELETE</button></form></li>
+      <li><%= playlist[1] %>: <%= playlist[2] %>
+        <form action = "/songs/<%= playlist[0] %>" method = "POST">
+        <input name = "_method" value = "DELETE" type = "hidden">
+        <button>delete</button>
+        </form></li>
     <% end %>
-  </ul>
+    </ul>
 
 
 
-  </form>
 </body>
 </html>
