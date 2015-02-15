@@ -1,0 +1,19 @@
+<html>
+<body>
+  <header>
+    <h1>Votefy</h1>
+  </header>
+  <ul>
+    <% playlist.each do |playlist| %>
+      <li><%= playlist[1] %>: <%= playlist[2] %>.</li>
+    <% end %>
+  </ul>
+
+  <h3>Add a song here:</h3>
+  <form action= "/" method = "post">
+    <input type="text" name="artist" placeholder="Artist name" required>
+    <input type="text" name="track" placeholder="Song name" required>
+    <button>ADD IT!</button>
+  </form>
+</body>
+</html>
