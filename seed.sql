@@ -4,5 +4,6 @@ artist TEXT,
 track TEXT,
 votes INTEGER,
 played INTEGER
-created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
+);
+
+INSERT INTO playlist (artist, track) VALUES ('ELO', 'Mr. Blue Sky');
