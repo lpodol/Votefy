@@ -1,25 +1,35 @@
+<!DOCTYPE html>
 <html>
+<head>
+  <title></title>
+</head>
 <body>
   <header>
     <h1>Votefy</h1>
   </header>
-    <form action= "/songs" method = "post">
-      <input type="text" name="artist" placeholder="Artist name" required>
-      <input type="text" name="track" placeholder="Song name" required>
-      <button>ADD</button>
-    </form>
-
-    <ul>
+  <form action="/songs" method="post">
+    <input type="text" name="artist" placeholder="Artist name" required>
+    <input type="text" name="track" placeholder="Song name" required>
+    <button>ADD</button>
+  </form>
+  <ul>
     <% playlist.each do |playlist| %>
-      <li><%= playlist[1] %>: <%= playlist[2] %>
-        <form action = "/songs/<%= playlist[0] %>" method = "POST">
-        <input name = "_method" value = "DELETE" type = "hidden">
-        <button>delete</button>
-        </form></li>
+      <li>
+        <%= playlist[1] %>: <%= playlist[2] %>, ID: <%= playlist[3] %>, votes: <%= playlist[4] %>
+        <form action="/songs/<%= playlist[0] %>/up" method = "POST">
+          <input name="_method" value="PUT" type="hidden">
+          <button>up</button>
+        </form>
+        <form action="/songs/<%= playlist[0] %>/down" method = "POST">
+          <input name="_method" value="PUT" type="hidden">
+          <button>down</button>
+        </form>
+        <form action="/songs/<%= playlist[0] %>" method="POST">
+          <input name="_method" value="DELETE" type="hidden">
+          <button>delete</button>
+        </form>
+      </li>
     <% end %>
-    </ul>
-
-
-
+  </ul>
 </body>
 </html>

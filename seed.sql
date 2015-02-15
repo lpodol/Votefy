@@ -2,8 +2,7 @@ CREATE TABLE playlist
 (id INTEGER PRIMARY KEY,
 artist TEXT,
 track TEXT,
-votes INTEGER,
-played INTEGER
+track_ID INTEGER,
+votes INTEGER DEFAULT 0,
+played INTEGER DEFAULT 0
 );
-
-INSERT INTO playlist (artist, track) VALUES ('ELO', 'Mr. Blue Sky');
